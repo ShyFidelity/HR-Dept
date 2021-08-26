@@ -1,0 +1,31 @@
+{
+  "name": "hr-dept",
+  "version": "1.0.0",
+  "description": "Team Profile Generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "materialize-css": "^1.0.0-rc.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jilliankayworks/HR-Dept.git"
+  },
+  "keywords": [
+    "hrdept"
+  ],
+  "author": "jillian fitzmaurice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jilliankayworks/HR-Dept/issues"
+  },
+  "homepage": "https://github.com/jilliankayworks/HR-Dept#readme"
+}

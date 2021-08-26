@@ -14,18 +14,19 @@ const employeeParent = () => {
     },
     {
       type: 'input',
-      name: 'location',
+      name: 'ID',
       message: 'What is your ID?',
     },
     {
       type: 'input',
-      name: 'hobby',
+      name: 'email',
       message: 'What is your email?',
     },
     {
         type: 'list',
         name: 'role',
-        choice: 'What is your role?',
+        message: 'What is your role?',
+        choices: ['Engineer','Intern','Manager'],
       },
  
  
@@ -44,19 +45,18 @@ const generateHTML = (answers) =>
 <body>
   <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
+    <h1>${answers.role}</h1>
+    <p>Hi! My name is ${answers.name}</p>
+    <p class="lead"> Employee ID: ${answers.ID}.</p>
+    <p class="lead"> Employee ID: ${answers.email}.</p>
   </div>
 </div>
 </body>
 </html>`;
 
 // Bonus using writeFileAsync as a promise
+// will need to generate a new card function as well as the html page 
+//or add another employee?
 const init = () => {
   employeeParent()
     .then((answers) => writeFileAsync('index.html', generateHTML(answers)))
