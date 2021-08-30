@@ -1,13 +1,19 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
+//Classes for constructors 
 const Manager = require('./lib/manager');
-
+const Employee = require('./lib/employee');
+const Intern = require('./lib/intern');
+const Engineer = require('./lib/engineer');
 
 // create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
 
+const teamArray = [];
 
+//inquirer 
+const init = () => {
 const addManager = () => {
   return inquirer.prompt([
     {
@@ -33,7 +39,9 @@ const addManager = () => {
  
  
   ]) .then(answers => {const manager = new Manager(answers.manName, answers.manId, answers.manEmail, answer.manOffice);
+    teamArray.push(manager);
   addEmployee();
+
 });
 
 };
@@ -82,53 +90,49 @@ const addEngineer = () =>  {
       message: 'What is your Github?',
     },
  
-  ]) .then(answers => {const engineerConst = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answer.engineerGithub);
+  ]) .then(answers => {const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answer.engineerGithub);
     addEmployee();
   });
   
   
-}
+};
 
-const generateHTML = (answers) =>
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+const addIntern = () =>  {
+  return inquirer.prompt([
+    {
+      type: 'input',
+      name: 'internName',
+      message: 'What is your name?',
+    },
+    {
+      type: 'input',
+      name: 'internID',
+      message: 'What is your ID?',
+    },
+    {
+      type: 'input',
+      name: 'internEmail',
+      message: 'What is your email?',
+    },
+    {
+      type: 'input',
+      name: 'internSchool',
+      message: 'What is your School?',
+    },
+ 
+  ]) .then(answers => {const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answer.internSchool);
+    addEmployee();
+  });
+  
+  
+};
     
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <title>HR Department</title>
-</head>
-<body>
-<div class="container">
-
-    <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <span id="title" class="card-panel cyan darken-3">Job Title</span>
-            <div class="card-content">
-            <ul>
-              <li>${answers.name}</li>
-              <li>${answers.ID}</li>
-              <li>${answers.email}</li>
-            </ul>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-</div>`;
 //how to store each card 
 //diff temp literal for each employee 
 //function that goes through the list of employees 
 //render each card seperately 
-const init = () => {
+
   addManager()
     .then((answers) => writeFileAsync('index.html', generateHTML(answers)))
     .then(() => console.log('Successfully added employee'))

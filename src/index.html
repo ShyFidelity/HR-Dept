@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+const generateHTML = (answers) =>
+`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,41 +23,86 @@
           <div class="card">
             <span id="title" class="card-panel cyan darken-3">Job Title</span>
             <div class="card-content">
-            <ul>
-              <li>ID</li>
-              <li>Email</li>
-            </ul>
+            //function here 
             </div>
             </div>
           </div>
         </div>
       </div>
 </div>
-<!-- <div id="Manager" class="card">
-    <div class="title"></div>
-    <div class="stats">
-        <div id= "ID"></div>
-        <div id= "Email"></div>
-        <div id= "OfficeNum"></div>
-    </div>
-</div>
-<div id="Engineer" class="card">
-    <div class="title"></div>
-    <div class="stats">
-        <div id= "ID"></div>
-        <div id= "Email"></div>
-        <div id= "GitHub"></div>
-    </div>
-</div>
-<div id="Intern" class="card">
-    <div class="title"></div>
-    <div class="stats">
-        <div id= "ID"></div>
-        <div id= "Email"></div>
-        <div id= "School"></div>
-    </div>
-</div> -->
+`;
 
-</div>
-</body>
-</html>
+const createEmployee = employee => {
+  // Create Manager Profile
+   `
+    <div class="card employee-card">
+        <div class="card-header text-center">
+            <h2 class="card-title">${manager.getName()}</h2>
+            <h4 class="card-title">Title: ${manager.getRole()}</h4>
+        </div>
+        <div class="card-body bg-light">
+            <ul class="list-group text-dark">
+                <li class="list-group-item">ID: ${manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
+            </ul>
+        </div>
+    </div>
+    `;
+  };
+const createManager = manager => {
+  // Create Manager Profile
+   `
+    <div class="card employee-card manager-card">
+        <div class="card-header text-center">
+            <h2 class="card-title">${manager.getName()}</h2>
+            <h4 class="card-title">Title: ${manager.getRole()}</h4>
+        </div>
+        <div class="card-body bg-light">
+            <ul class="list-group text-dark">
+                <li class="list-group-item">ID: ${manager.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
+            </ul>
+        </div>
+    </div>
+    `;
+  };
+  
+  const createEngineer = engineer => {
+    // Create Manager Profile
+    
+    `  <div class="card employee-card manager-card">
+          <div class="card-header text-center">
+              <h2 class="card-title">${engineer.getName()}</h2>
+              <h4 class="card-title">Title: ${engineer.getRole()}</h4>
+          </div>
+          <div class="card-body bg-light">
+              <ul class="list-group text-dark">
+                  <li class="list-group-item">ID: ${engineer.getId()}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                  <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
+              </ul>
+          </div>
+      </div>
+      `;
+    };
+  
+    const createIntern = intern => {
+      // Create Manager Profile
+       `
+        <div class="card employee-card manager-card">
+            <div class="card-header text-center">
+                <h2 class="card-title">${intern.getName()}</h2>
+                <h4 class="card-title">Title: ${intern.getRole()}</h4>
+            </div>
+            <div class="card-body bg-light">
+                <ul class="list-group text-dark">
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
+                </ul>
+            </div>
+        </div>
+        `
+      };
