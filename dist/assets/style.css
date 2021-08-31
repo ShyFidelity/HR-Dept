@@ -1,20 +1,25 @@
-#title {
-    width: fit-content;
-}
 
+.card-header {
+    background-color: #b6f6e0;
+    padding: 2%;
+}
+h1 {
+    color: darkcyan;
+   
+
+}
 .card {
+    display: flex;
     border: 10px solid orange;
     border-radius: 20px;
     margin: 4%;
+    max-width: 400px;
+    height: auto;
 }
 
 body {
-    background-image: url(./Untitled-2.png);
+    background-image: url('./blueorange.png');
     background-size: auto;
     width: 100%;
     height: 100%;
-    margin: 10%;
-}
-.container{
-    margin: 8%;
 }

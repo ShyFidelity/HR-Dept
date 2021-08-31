@@ -3,17 +3,17 @@ const fs = require('fs');
 const util = require('util');
 //Classes for constructors 
 const Manager = require('./lib/manager');
-const Employee = require('./lib/employee');
 const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
+const generateHTML = require('./src/source');
 
 // create writeFile function using promises instead of a callback function
-// const writeFileAsync = util.promisify(fs.writeFile);
+
 
 const teamArray = [];
 
 //inquirer 
-const init = () => {
+
 const addManager = () => {
   return inquirer.prompt([
     {
@@ -39,7 +39,7 @@ const addManager = () => {
     },
  
  
-  ]) .then(answers => {const manager = new Manager(answers.name, answers.ID, answers.email, answer.manOffice);
+  ]) .then(answers => {const manager = new Manager(answers.name, answers.ID, answers.email, answers.manOffice);
     teamArray.push(manager);
   addEmployee();
 
@@ -57,10 +57,11 @@ const addEmployee = () => {
    
   ])
   .then((response) => {
-    if (response === true) {
+    console.log(response);
+    if (response.newEmployee === true) {
       addNewEmployee(); 
     } else {
-      generateHTML();
+      createPage();
     }
 
   
@@ -77,7 +78,7 @@ const addNewEmployee = ()=> {
       choices: [
         "Engineer",
         "Intern",
-        "Manager"
+    
       ]
     },
     {
@@ -97,20 +98,23 @@ const addNewEmployee = ()=> {
     },
 
 
-  ]);
+  ])
 
-  if (chocies.Engineer) {
-    addEngineer();
-  } 
-  if (choices.Intern) {
-    addIntern();
-    
-  }
+  .then(answers => {
+    if (answers.newEmployeeRole === 'Engineer') {
+      addEngineer(answers);
+    } 
+    if (answers.newEmployeeRole === 'Intern') {
+      addIntern(answers);
+      
+    }
+  });
+
 };
 
 
 
-const addEngineer = () =>  {
+const addEngineer = responses =>  {
   return inquirer.prompt([
 
     {
@@ -119,14 +123,15 @@ const addEngineer = () =>  {
       message: 'What is your Github?',
     },
  
-  ]) .then(answers => {const engineer = new Engineer(answers.name, answers.ID, answers.email, answer.engineerGithub);
+  ]) .then(answers => {const engineer = new Engineer(responses.name, responses.ID, responses.email, answers.engineerGithub);
+    teamArray.push(engineer);
     addEmployee();
   });
   
   
 };
 
-const addIntern = () =>  {
+const addIntern = responses =>  {
   return inquirer.prompt([
     {
       type: 'input',
@@ -134,7 +139,8 @@ const addIntern = () =>  {
       message: 'What is your School?',
     },
  
-  ]) .then(answers => {const intern = new Intern(answers.name, answers.ID, answers.email, answer.internSchool);
+  ]) .then(answers => {const intern = new Intern(responses.name, responses.ID, responses.email, answers.internSchool);
+    teamArray.push(intern);
     addEmployee();
   });
   
@@ -146,11 +152,13 @@ const addIntern = () =>  {
 //diff temp literal for each employee 
 //function that goes through the list of employees 
 //render each card seperately 
+//push
 
-  addManager()
-    .then((answers) => writeFileAsync('index.html', generateHTML(answers)))
-    .then(() => console.log('Successfully added employee'))
-    .catch((err) => console.error(err));
+
+
+const createPage = () => {
+  fs.writeFileSync('./dist/index.html', generateHTML(teamArray));
+ 
 };
 
-init();
+addManager();
