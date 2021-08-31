@@ -1,3 +1,4 @@
+const index = require('index.js');
 
 const generateHTML = (answers) =>
 `<!DOCTYPE html>
@@ -32,24 +33,6 @@ const generateHTML = (answers) =>
 </div>
 `;
 
-const createEmployee = employee => {
-  // Create Manager Profile
-   `
-    <div class="card employee-card">
-        <div class="card-header text-center">
-            <h2 class="card-title">${manager.getName()}</h2>
-            <h4 class="card-title">Title: ${manager.getRole()}</h4>
-        </div>
-        <div class="card-body bg-light">
-            <ul class="list-group text-dark">
-                <li class="list-group-item">ID: ${manager.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
-            </ul>
-        </div>
-    </div>
-    `;
-  };
 const createManager = manager => {
   // Create Manager Profile
    `
@@ -62,7 +45,7 @@ const createManager = manager => {
             <ul class="list-group text-dark">
                 <li class="list-group-item">ID: ${manager.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNumber()}">${manager.getofficeNumber()}</a></li>
+                <li class="list-group-item">Office number: <a href="tel:${manager.getofficeNum()}">${manager.getofficeNum()}</a></li>
             </ul>
         </div>
     </div>

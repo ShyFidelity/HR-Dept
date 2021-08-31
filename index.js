@@ -8,7 +8,7 @@ const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 
 // create writeFile function using promises instead of a callback function
-const writeFileAsync = util.promisify(fs.writeFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 const teamArray = [];
 
@@ -18,19 +18,20 @@ const addManager = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'manName',
+      name: 'name',
       message: 'What is your name?',
     },
     {
       type: 'input',
-      name: 'manID',
+      name: 'ID',
       message: 'What is your ID?',
     },
     {
       type: 'input',
-      name: 'manEmail',
+      name: 'email',
       message: 'What is your email?',
     },
+
     {
       type: 'input',
       name: 'manOffice',
@@ -38,7 +39,7 @@ const addManager = () => {
     },
  
  
-  ]) .then(answers => {const manager = new Manager(answers.manName, answers.manId, answers.manEmail, answer.manOffice);
+  ]) .then(answers => {const manager = new Manager(answers.name, answers.ID, answers.email, answer.manOffice);
     teamArray.push(manager);
   addEmployee();
 
@@ -53,44 +54,72 @@ const addEmployee = () => {
       name: 'newEmployee',
       message: 'Do you want to add a new employee?',
     },
+   
+  ])
+  .then((response) => {
+    if (response === true) {
+      addNewEmployee(); 
+    } else {
+      generateHTML();
+    }
+
+  
+  });
+  
+};
+
+const addNewEmployee = ()=> {
+  inquirer.prompt([
     {
       type: 'list',
-      name: 'newEmployee',
+      name: 'newEmployeeRole',
       message: 'What team member would you like to add next?',
       choices: [
         "Engineer",
         "Intern",
-        "nevermind"
+        "Manager"
       ]
     },
-  ]);
-  
-};
-
-const addEngineer = () =>  {
-  return inquirer.prompt([
     {
       type: 'input',
-      name: 'engineerName',
+      name: 'name',
       message: 'What is your name?',
     },
     {
       type: 'input',
-      name: 'engineerID',
+      name: 'ID',
       message: 'What is your ID?',
     },
     {
       type: 'input',
-      name: 'engineerEmail',
+      name: 'email',
       message: 'What is your email?',
     },
+
+
+  ]);
+
+  if (chocies.Engineer) {
+    addEngineer();
+  } 
+  if (choices.Intern) {
+    addIntern();
+    
+  }
+};
+
+
+
+const addEngineer = () =>  {
+  return inquirer.prompt([
+
     {
       type: 'input',
       name: 'engineerGithub',
       message: 'What is your Github?',
     },
  
-  ]) .then(answers => {const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answer.engineerGithub);
+  ]) .then(answers => {const engineer = new Engineer(answers.name, answers.ID, answers.email, answer.engineerGithub);
     addEmployee();
   });
   
@@ -101,26 +130,11 @@ const addIntern = () =>  {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'internName',
-      message: 'What is your name?',
-    },
-    {
-      type: 'input',
-      name: 'internID',
-      message: 'What is your ID?',
-    },
-    {
-      type: 'input',
-      name: 'internEmail',
-      message: 'What is your email?',
-    },
-    {
-      type: 'input',
       name: 'internSchool',
       message: 'What is your School?',
     },
  
-  ]) .then(answers => {const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answer.internSchool);
+  ]) .then(answers => {const intern = new Intern(answers.name, answers.ID, answers.email, answer.internSchool);
     addEmployee();
   });
   
