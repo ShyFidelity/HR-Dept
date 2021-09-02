@@ -1,19 +1,15 @@
 # Team Profile Generator
 
-### Github : 
+### Github : https://github.com/jilliankayworks
 
-### Walkthrough video : https://drive.google.com/file/d/1YSDgtQARBb63hjkj2FCiyBayyTYUqlw4/view
+### Walkthrough video : https://drive.google.com/file/d/1gqLhX7QXuqAHQnqJJnXoPecPGtsl4hHc/view
 
 ## Description
 This is an application using node.js and inquirer. We ask a series of questions to gain information about a selected type of employee. This is very useful to a manager because now all employee info is located in one place and easy to find. 
 
+## What was learned
+For this project we learned how to create tests using jest, use npm, and node and continue working with inquirer! This was a fun and challenging project to make but really showed how much you can do from a command line with coding.  
 
-## User Story
-```
-- AS A manager
-- I WANT to generate a webpage that displays my team's basic info
-- SO THAT I have quick access to their emails and GitHub profiles
-```
 
 
 ## Usage
@@ -29,11 +25,11 @@ This is an application using node.js and inquirer. We ask a series of questions 
 
 
 ## Screenshots
-![](assets/img/npmtest-vscode.png)
+![](assets/styless.png)
 
-![](assets/img/nodeindex-vscode.png)
+![](assets/img/testss.png)
 
-![](assets/img/output-html.png)
+![](assets/img/indexss.png)
 
 
 ## Technologies Use
@@ -41,9 +37,5 @@ This is an application using node.js and inquirer. We ask a series of questions 
 <p><a href="https://www.npmjs.com/">NPM</a></p>
 <p><a href="https://www.npmjs.com/package/inquirer">Inquirer.js</a></p>
 <p><a href="https://www.npmjs.com/package/jest">Jest</a></p>
-<p><a href="https://getbootstrap.com/">Bootstrap</a></p>
+<p><a href="https://materializecss.com/">Materialize</a></p>
 
-
-## Contributor:
-Sylvia Prabudy ©2020 All Rights Reserved.
-- - -

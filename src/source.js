@@ -39,7 +39,7 @@ const createManager = (answers) => {
         <div class="card-body bg-light">
             <ul class="list-group text-dark">
                 <li class="list-group-item">ID: ${answers[0].getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${answers[0].getEmail()}">${answers[0].getEmail()}</a>
+                <li class="list-group-item">Email: <a href="mailto:${answers[0].getEmail()}">${answers[0].getEmail()}</a></li>
                 <li class="list-group-item">Office number: ${answers[0].officeNum}</li>
             </ul>
         </div>
@@ -64,7 +64,7 @@ const createManager = (answers) => {
              <div class="card-body bg-light">
                  <ul class="list-group text-dark">
                      <li class="list-group-item">ID: ${engineer.getId()}</li>
-                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
                      <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
                   
                  </ul>
@@ -92,7 +92,7 @@ const createManager = (answers) => {
              <div class="card-body bg-light">
                  <ul class="list-group text-dark">
                      <li class="list-group-item">ID: ${intern.getId()}</li>
-                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                      <li class="list-group-item">School: ${intern.getSchool()}</li>
                   
                  </ul>
