@@ -3,6 +3,8 @@
 ### Github : https://github.com/jilliankayworks
 
 ### Walkthrough video : https://drive.google.com/file/d/1gqLhX7QXuqAHQnqJJnXoPecPGtsl4hHc/view
+### Link to read me: https://jilliankayworks.github.io/HR-Dept/ 
+### see index.html for deployed 
 
 ## Description
 This is an application using node.js and inquirer. We ask a series of questions to gain information about a selected type of employee. This is very useful to a manager because now all employee info is located in one place and easy to find. 
